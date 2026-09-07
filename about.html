@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>경력·이력 | 조기정 · AI 개발</title>
+  <meta name="description" content="조기정 AI 개발자의 경력 타임라인(국민대 석사 → Edutem → PPS 팀장), 학력·자격·수상·특허·논문·기술 스택." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="logo-mark">AI</span><span>FISH-AI<small>조기정 · AI Engineer</small></span></a>
+      <nav class="nav-links">
+        <a href="index.html">홈</a>
+        <a href="about.html">경력·이력</a>
+        <a href="services.html">서비스</a>
+        <a href="projects.html">프로젝트</a>
+        <a href="contact.html">문의</a>
+        <a class="btn btn-primary nav-cta" href="contact.html">일 맡기기</a>
+      </nav>
+      <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom:30px">
+      <div class="wrap reveal">
+        <span class="eyebrow">About · 경력·이력</span>
+        <h1 style="font-size:clamp(2rem,4.6vw,3rem);margin-top:16px">산업공학에서 시작해<br /><span class="grad-text">실서비스 AI</span>까지.</h1>
+        <p class="lead">
+          산업공학·통계로 문제를 정의하는 관점과, 연구를 실제 배포까지 끌고 가는 실행력을 함께 갖춘
+          AI 개발자입니다. 현재 <b>PPS AI 개발팀 팀장</b>으로 실시간 영상 트래킹과 보안 LLM 서비스를 이끕니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 경력 타임라인 -->
+    <section style="padding-top:20px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">경력 <span class="grad-text">타임라인</span></h2>
+          <p class="section-sub">석사(연구) → 실무 개발 → 팀 리딩으로 이어진 4년+.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="period">2025.03 ~ 현재 · 1년 5개월</div>
+            <h3>PPS · AI 개발팀 팀장</h3>
+            <div class="org">실시간 감시영상 AI · 온프레미스 보안 RAG-LLM · 자가개선 에이전트</div>
+            <ul>
+              <li><b>실시간 영상 객체탐지·트래킹</b>: YOLO + 경량 칼만 다중객체 추적. 3단계 매칭(헝가리안/LAPJV) 재식별, 라벨 흔들림 ≈30%↑ 억제, 최소자승 속도 스무딩 ≈30%↑.</li>
+              <li>저조도·안개·저화질 전처리 + <b>TensorRT 최적화 54ms/frame</b>, FastAPI 무중단 파라미터 조절.</li>
+              <li>성과: <b>ID 지속성/성능 94%↑</b>(BoT-SORT 대비 연산↓·ID 단절/속도폭주 해결), 경량 추적 <b>특허 명세 초안</b>.</li>
+              <li><b>온프레미스 보안 RAG-LLM</b>: 보안등급·업무유형별 문서 접근제어, 벡터DB 거버넌스, 지식그래프(Neo4j)로 환각 ~30%↓, Data Flywheel 재학습 루프.</li>
+              <li><b>자가개선 업무 에이전트(하네스)</b>: 실패 자동복구, 에이전트가 에이전트를 평가, MCP 도구 생성. 오류율 ~40%↓·생산성 ~30%↑.</li>
+            </ul>
+          </div>
+          <div class="tl-item reveal">
+            <div class="period">2023.11 ~ 2025.02 · 1년 3개월</div>
+            <h3>Edutem · AI Developer</h3>
+            <div class="org">AI 영어 디지털 교과서용 모델 개발/배포</div>
+            <ul>
+              <li><b>영문법 교정 LLM(Flan-T5 11B)</b>: 지시문+추가학습으로 <b>70% → 97.8%</b> 개선(일부 GPT 상회), 기업 서버 포팅.</li>
+              <li><b>TTS(Melo)</b> 미국식 발음 파인튜닝(Whisper STT로 학습셋 선별), 한국어 태깅 모델, Book Talking/Quiz <b>RAG 챗봇</b>.</li>
+              <li>수집·전처리·라벨링·학습·배포 <b>E2E 파이프라인</b>으로 재학습 시간 ~30%↓, Docker+FastAPI 배포. (BLEU·SARI·CER·WER)</li>
+            </ul>
+          </div>
+          <div class="tl-item reveal">
+            <div class="period">2022.03 ~ 2024.08 · 공학석사 4.45/4.5</div>
+            <h3>국민대학교 KIS Lab · 공학석사(비즈니스 IT)</h3>
+            <div class="org">데이터 분석·최적화·통계 모델링 연구</div>
+            <ul>
+              <li>공기식 기화기 운영 최적화(Integer Programming) — <b>전력요금 48.8%↓·안정성 49.53%↑</b> (KCI 논문·가스공사 사장상).</li>
+              <li>스마트팜 재배 레시피(로지스틱 회귀) — 생육 75%↑·산포 61%↓·<b>생산성 27%↑</b> (특허 등록·수상).</li>
+              <li>통계적 가상화폐 차익거래(김치프리미엄·환율 회귀) — 저작권 + KCI 논문.</li>
+              <li>박물관 OCR 크롤링·설명 웹서비스(KAIST 주재걸 교수 연구실 & goorm, 팀장/총괄), 전기차 BI·부하예측(Katech).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 학력/자격/수상/특허/논문 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">학력 · 자격 · <span class="grad-text">특허 · 논문</span></h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="card reveal">
+            <h3>학력 · 교육</h3>
+            <dl class="def-list" style="margin-top:12px">
+              <dt>석사</dt><dd>국민대 비즈니스 IT 공학석사 (2022.03~2024.08, 4.45/4.5)</dd>
+              <dt>교육</dt><dd>KAIST AI 대학원 자연어처리 전문가 양성과정 (2022, 주재걸 교수 연구실 & goorm)</dd>
+            </dl>
+          </div>
+          <div class="card reveal">
+            <h3>자격 · 수상</h3>
+            <dl class="def-list" style="margin-top:12px">
+              <dt>자격</dt><dd>빅데이터 분석기사 (2022.07, 한국데이터산업진흥원)</dd>
+              <dt>수상</dt><dd>DACON 신용카드 연체 예측 3위(2023) · 가스공사 사장상(2020) · 산업경영시스템학회 입상(2020)</dd>
+            </dl>
+          </div>
+          <div class="card reveal">
+            <h3>특허</h3>
+            <ul style="margin-top:8px">
+              <li>실시간 영상 경량 추적 (NIT, 2026 출원)</li>
+              <li>로봇 재활치료 효과 예측 (등록 · 10-2024-0026134)</li>
+              <li>스마트팜 재배 레시피 (등록 · 10-2575549)</li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <h3>논문 · 저작권</h3>
+            <ul style="margin-top:8px">
+              <li>KCI: 기화설비 토출온도 예측 AI (2021, 산업경영시스템학회지)</li>
+              <li>KCI: 가상화폐 통계적 차익거래 (2023, 산학기술학회)</li>
+              <li>저작권: 가상화폐 차익거래 프로그램 (2021, C-2021-040732)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 기술 스택 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">기술 <span class="grad-text">스택</span></h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal"><h3>ML / Vision</h3><div class="skill-tags" style="margin-top:12px"><span>Python</span><span>PyTorch</span><span>YOLO</span><span>TensorRT</span><span>Kalman</span><span>LSTM/DNN</span></div></div>
+          <div class="card reveal"><h3>LLM / RAG</h3><div class="skill-tags" style="margin-top:12px"><span>Flan-T5</span><span>Melo-TTS</span><span>Whisper</span><span>RAG</span><span>Neo4j</span><span>Milvus</span><span>keyBERT</span><span>MCP·Agent</span></div></div>
+          <div class="card reveal"><h3>서빙 / 인프라</h3><div class="skill-tags" style="margin-top:12px"><span>FastAPI</span><span>WebSocket</span><span>Streamlit</span><span>Docker/Podman</span><span>Linux/SSH</span><span>uv</span></div></div>
+          <div class="card reveal"><h3>데이터 / 분석</h3><div class="skill-tags" style="margin-top:12px"><span>통계 모델링</span><span>Integer Programming</span><span>Tableau</span><span>R</span><span>빅데이터</span></div></div>
+          <div class="card reveal"><h3>협업 / 기타</h3><div class="skill-tags" style="margin-top:12px"><span>Git</span><span>Rust (트레이딩 엔진)</span></div></div>
+        </div>
+        <div style="text-align:center;margin-top:34px" class="reveal">
+          <a class="btn btn-primary btn-lg" href="contact.html">함께 일하기 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><span class="logo-mark">AI</span><span>FISH-AI<small>조기정 · AI Engineer</small></span></a>
+          <div class="footer-links" style="margin-top:14px">
+            <a href="about.html">경력·이력</a><a href="services.html">서비스</a><a href="projects.html">프로젝트</a><a href="contact.html">문의</a>
+          </div>
+        </div>
+        <div class="footer-links" style="align-items:flex-start">
+          <a href="https://github.com/GiJeongCho" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://wzxcv123.tistory.com/" target="_blank" rel="noopener">Blog</a>
+          <a href="https://leaf-drill-a6f.notion.site/Profile_Gi_Jeong_Cho-66f60842a1c74bcc870d126a96f8743e" target="_blank" rel="noopener">Notion</a>
+          <a href="http://netbitrage.kro.kr" target="_blank" rel="noopener">Netbitrage</a>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year">2026</span> 조기정 (Gijeong Cho). All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
