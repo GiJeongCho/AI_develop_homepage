@@ -117,6 +117,33 @@ h2.section-title { font-size: clamp(1.5rem, 3.4vw, 2.3rem); }
   font-size: 1.3rem; cursor: pointer;
 }
 
+/* ---------- 네비 드롭다운 (부업 관리) ---------- */
+.nav-dropdown { position: relative; display: inline-flex; }
+.nav-drop-toggle {
+  font-family: inherit; cursor: pointer;
+  padding: 9px 14px; border-radius: 10px; color: var(--text-2);
+  font-weight: 600; font-size: 0.94rem; background: none; border: none;
+  display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;
+}
+.nav-drop-toggle:hover { color: var(--text); background: var(--panel); }
+.nav-drop-toggle .caret { font-size: 0.7rem; transition: transform 0.2s; }
+.nav-dropdown.open .nav-drop-toggle { color: var(--mint); }
+.nav-dropdown.open .nav-drop-toggle .caret { transform: rotate(180deg); }
+.nav-drop-toggle.active { color: var(--mint); }
+.nav-drop-menu {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 194px;
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: var(--shadow); padding: 8px;
+  display: none; flex-direction: column; gap: 2px; z-index: 120;
+}
+.nav-dropdown.open .nav-drop-menu { display: flex; }
+.nav-drop-menu a {
+  padding: 10px 12px; border-radius: 8px; color: var(--text-2);
+  font-weight: 600; font-size: 0.92rem; white-space: nowrap;
+}
+.nav-drop-menu a:hover { color: var(--mint); background: var(--panel); }
+.nav-drop-menu a.active { color: var(--mint); }
+
 /* ---------- 버튼 ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -319,6 +346,14 @@ section { padding: 84px 0; }
   .nav-links.open { transform: none; }
   .nav-links a { padding: 13px 12px; }
   .nav-toggle { display: grid; place-items: center; }
+  .nav-dropdown { flex-direction: column; align-items: stretch; }
+  .nav-drop-toggle { width: 100%; justify-content: space-between; padding: 13px 12px; }
+  .nav-drop-menu {
+    position: static; display: flex; box-shadow: none; border: none;
+    background: transparent; padding: 0 0 0 12px; min-width: 0;
+    max-height: 0; overflow: hidden; padding-top: 0; padding-bottom: 0;
+  }
+  .nav-dropdown.open .nav-drop-menu { max-height: 200px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .promo { flex-direction: column; align-items: flex-start; }
   .cta-band { padding: 34px 22px; }

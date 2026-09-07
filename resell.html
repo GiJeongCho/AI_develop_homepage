@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리셀 자동화 (무신사 → 포이즌) | FISH-AI</title>
+  <meta name="description" content="무신사에서 싸게 → 포이즌(得物)에서 팔리는 것만 자동으로 찾아 올리고, 품절·가격·판매까지 알아서 관리하는 리셀 자동화 프로그램. 부가세·수수료 반영 '진짜 남는 돈'으로만 판단합니다." />
+  <meta property="og:title" content="리셀 자동화 · 무신사 → 포이즌" />
+  <meta property="og:description" content="발견부터 등록·가격관리·판매알림까지 자동화. API 한도 안전장치·오매칭 가드·진짜차익 계산 내장." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <span class="logo-mark">AI</span>
+        <span>FISH-AI<small>조기정 · AI Engineer</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">홈</a>
+        <a href="about.html">경력·이력</a>
+        <a href="services.html">서비스</a>
+        <a href="projects.html">프로젝트</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">부업 관리 <span class="caret">▾</span></button>
+          <div class="nav-drop-menu">
+            <a href="resell.html">리셀 자동화</a>
+            <a href="make_shorts.html">쇼츠 메이커</a>
+          </div>
+        </div>
+        <a class="btn btn-primary nav-cta" href="contact.html">일 맡기기</a>
+      </nav>
+      <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">직접 만들어 운영 중 · 리셀 자동화</span>
+          <h1>무신사에서 싸게,<br /><span class="grad-text">포이즌에서 팔리는 것만.</span></h1>
+          <p class="lead">
+            발견부터 <b>등록·가격관리·판매알림</b>까지 자동으로. 표시가가 아니라
+            <b>부가세 환급·수수료까지 반영한 '진짜 남는 돈'</b>으로만 판단하는
+            무신사 → 포이즌(得物) 리셀 자동화 프로그램입니다.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="contact.html">도입 문의하기</a>
+            <a class="btn btn-ghost btn-lg" href="#how">작동 방식 보기</a>
+          </div>
+          <div class="hero-meta">
+            <div class="m"><b class="grad-text">24/7</b><span>무인 자동 운영</span></div>
+            <div class="m"><b class="grad-text">폐루프</b><span>발견→판매→기록</span></div>
+            <div class="m"><b class="grad-text">진짜차익</b><span>부가세·수수료 반영</span></div>
+          </div>
+        </div>
+        <div class="hero-card reveal">
+          <h3>한눈에 — 이런 걸 대신합니다</h3>
+          <div class="skill-tags">
+            <span>무신사 랭킹·브랜드·세일 스캔</span><span>포이즌 시세 자동 조회</span>
+            <span>진짜차익 계산</span><span>자동 위탁 등록</span>
+            <span>품절·저마진 자동 내림</span><span>경쟁가 리프라이싱</span>
+            <span>판매 즉시 텔레그램 알림</span><span>API 한도 안전장치</span>
+            <span>오매칭 3중 가드</span><span>노코드 웹 대시보드</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 문제 제기 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">손으로 하면 <span class="grad-text">여기서 막힙니다</span></h2>
+          <p class="section-sub">리셀러가 가장 자주 시간을 흘리고 손해 보는 지점들. 이 프로그램은 이 지점들을 정면으로 없앱니다.</p>
+        </div>
+        <div class="grid grid-4">
+          <div class="card reveal">
+            <div class="ico">🕒</div>
+            <h3>매칭에 시간 낭비</h3>
+            <p>품번 하나하나 포이즌에 넣어 SPU·사이즈 맞추고 시세 확인하다 하루가 갑니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">🫥</div>
+            <h3>표시가 착시</h3>
+            <p>싸 보여서 올렸는데 수수료·부가세 빼면 남는 게 없는 '헛수익'.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">📉</div>
+            <h3>놓쳐서 손해</h3>
+            <p>품절·언더컷·타임세일 종료를 못 봐서 못 팔거나 역마진으로 팔립니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">🚧</div>
+            <h3>API 막혀 하루 날림</h3>
+            <p>포이즌 호출빈도 초과에 걸리면 하루 종일 아무것도 안 올라갑니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 작동 흐름 -->
+    <section id="how" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">발견부터 판매까지 <span class="grad-text">폐루프 자동화</span></h2>
+          <p class="section-sub">서버를 켜 두면 아래 흐름이 24시간 스스로 돕니다. 사람은 판매 알림을 확인하고, 원하면 매입만 하면 됩니다.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card proj reveal">
+            <span class="tag">STEP 1 · 수집</span>
+            <h3>후보 발견</h3>
+            <p>무신사 랭킹 500 + 브랜드 페이지 + 세일·기획전을 로테이션 스캔해 후보 상품을 넓게 긁습니다.</p>
+          </div>
+          <div class="card proj reveal">
+            <span class="tag">STEP 2 · 비교</span>
+            <h3>진짜차익 계산</h3>
+            <p>포이즌 시세 조회 → 카테고리별 수수료 + 부가세 환급까지 반영해 실제로 남는 금액만 도출합니다.</p>
+          </div>
+          <div class="card proj reveal">
+            <span class="tag">STEP 3 · 등록</span>
+            <h3>자동 위탁 등록</h3>
+            <p>최소 진짜차익을 넘는 것만, 경쟁 최저가보다 살짝 싸게 걸어 처음부터 노출되게 올립니다.</p>
+          </div>
+          <div class="card proj reveal">
+            <span class="tag">STEP 4 · 유지</span>
+            <h3>가격·재고 관리</h3>
+            <p>품절·저마진은 자동으로 내리고, 언더컷 당하면 최소마진을 지키며 경쟁가로 리프라이싱합니다.</p>
+          </div>
+          <div class="card proj reveal">
+            <span class="tag">STEP 5 · 판매</span>
+            <h3>즉시 알림</h3>
+            <p>분 단위 판매 감지 → 텔레그램으로 즉시 알림(발송 48시간 마감·무신사 구매링크 포함).</p>
+          </div>
+          <div class="card proj reveal">
+            <span class="tag">STEP 6 · 기록</span>
+            <h3>매입·장부</h3>
+            <p>(옵션) 무신사 자동 매입, 엑셀 장부·구글시트 자동 기록까지. 자동매수는 기본 꺼짐.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 핵심 강점 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">단순 '가격 비교 알림'과 <span class="grad-text">다른 이유</span></h2>
+          <p class="section-sub">등록·가격·재고·판매까지 폐루프로 닫고, 리셀러가 가장 자주 막히는 지점을 코드로 해결했습니다.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <div class="ico">💰</div>
+            <h3>진짜 남는 것만 올림</h3>
+            <p>부가세 환급·회원 등급할인을 반영한 실매입원가 + 카테고리별 포이즌 수수료로 실수령가를 계산. 최소 차익 미만은 애초에 등록하지 않습니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">🛡️</div>
+            <h3>오매칭 3중 가드</h3>
+            <p>품번 길이 가드 + 가격배수 가드(무신사가 대비 N배 초과 시 다른 상품 판정) + 브랜드 일치 검증(한글↔영문 토큰맵)으로 엉뚱한 매칭을 차단합니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">🚦</div>
+            <h3>레이트리밋을 이긴다</h3>
+            <p>혼잡 서킷브레이커(프로브+지수 백오프) + 분당 호출 상한 + 실측 도구로 계정별 지속가능 한도를 재서, '하루 종일 안 올라감' 사고를 막습니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">🔁</div>
+            <h3>올린 뒤에도 알아서</h3>
+            <p>재고 모니터가 품절·판매중지·저마진을 자동으로 내리고, 언더컷 방어와 타임세일 종료 전 선제 내림까지 상시 돌아갑니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">⚡</div>
+            <h3>판매 즉시 대응</h3>
+            <p>분 단위 판매 폴링 → 텔레그램 즉시 알림(48시간 발송 마감 표기) → (옵션) 무신사 자동 매수까지 연결됩니다.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">🎛️</div>
+            <h3>노코드 웹 컨트롤</h3>
+            <p>설정을 파일이 아니라 웹 대시보드에서 조정. 스캔 사이클·활성 위탁·혼잡 상태·로그를 한눈에 봅니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 진짜차익 계산 (신뢰) -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="promo reveal">
+          <div class="txt">
+            <span class="eyebrow">신뢰 포인트</span>
+            <h3 style="margin-top:12px">'표시가'가 아니라 '진짜 남는 돈'으로 판단합니다</h3>
+            <p>한국 세무 현실(부가세 환급·등급할인)과 포이즌 카테고리 수수료를 모두 반영해 계산하므로,
+               헛수익 착시 없이 실제 마진이 확보되는 상품만 등록됩니다.</p>
+          </div>
+          <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 22px;font-size:0.92rem;color:var(--text-2);line-height:2;min-width:280px">
+            <div>포이즌 실수령가 = 최저호가 − 판매수수료</div>
+            <div>실매입원가 = 무신사 표시가 ÷ (1 + 부가세율)</div>
+            <div style="color:var(--mint);font-weight:700">진짜차익 = 실수령가 − 실매입원가</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 한 줄 메시지 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">한 줄로 <span class="grad-text">요약하면</span></h2>
+        </div>
+        <div class="badges reveal">
+          <span class="badge">💸 <b>표시가 말고 진짜 남는 돈</b>으로 판단</span>
+          <span class="badge">🚦 <b>API 막혀 하루 날리는 일</b> 없게</span>
+          <span class="badge">🔁 올리는 것까지가 아니라 <b>팔릴 때까지</b> 관리</span>
+          <span class="badge">🛡️ <b>엉뚱한 매칭</b>으로 손해 보지 않게</span>
+          <span class="badge">🔒 계정 자격증명은 <b>사용자 로컬에만</b> 저장</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 타깃 고객 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">이런 분께 <span class="grad-text">맞습니다</span></h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <div class="ico">🛒</div>
+            <h3>무신사 소싱 포이즌 셀러</h3>
+            <p>무신사에서 사서 포이즌에 파는 입문~중급 셀러. 손이 많이 가는 반복 작업을 자동화하고 싶은 분.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">⏱️</div>
+            <h3>수작업에 지친 분</h3>
+            <p>품번 매칭·시세 확인·재등록에 매일 시간을 쓰는데 놓치는 게 많다고 느끼는 분.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">📈</div>
+            <h3>규모를 키우고 싶은 분</h3>
+            <p>수백~수천 품번을 사람 손 없이 상시 회전시키며 마진 나는 것만 골라 팔고 싶은 분.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 안전장치 & 고지 -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">먼저 <span class="grad-text">솔직하게</span> 알려드립니다</h2>
+          <p class="section-sub">과장 없이. 도입 전에 알고 계셔야 할 안전장치와 유의사항입니다.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card reveal">
+            <div class="ico">✅</div>
+            <h3>안전장치</h3>
+            <p>
+              · 자동매수는 실제 결제가 일어나므로 <b>기본 off</b> — 한도·경고 확인 후 직접 켜야 켜집니다.<br />
+              · 판매·매수·등록·기록은 모두 멱등키로 <b>중복 방지</b>.<br />
+              · 결제 상한(max_price) 초과 시 중단, 이미 산 것 재매수 방지.<br />
+              · 계정 자격증명은 <b>사용자 로컬에만</b> 저장(서버 미전송).
+            </p>
+          </div>
+          <div class="card reveal">
+            <div class="ico">⚠️</div>
+            <h3>유의사항</h3>
+            <p>
+              · 플랫폼 정책·수수료·세율은 변동될 수 있어 값은 <b>사용자가 최신으로 유지</b>해야 합니다.<br />
+              · 포이즌 오픈 API 셀러 자격, 무신사·텔레그램 계정 등 <b>사전 준비물</b>이 필요합니다.<br />
+              · 자동화 특성상 플랫폼 정책·환경에 따라 결과가 달라질 수 있습니다.<br />
+              · 설치·온보딩은 함께 도와드립니다(개인 환경 세팅 필요).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <h2>리셀, 이제 사람이 붙어 있지 않아도 됩니다</h2>
+          <p>도입·데모·맞춤 세팅이 궁금하시면 편하게 문의 주세요. 가능 여부와 준비물부터 솔직하게 안내드립니다.</p>
+          <a class="btn btn-primary btn-lg" href="contact.html">도입 문의하기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><span class="logo-mark">AI</span><span>FISH-AI<small>조기정 · AI Engineer</small></span></a>
+          <div class="footer-links" style="margin-top:14px">
+            <a href="about.html">경력·이력</a>
+            <a href="services.html">서비스</a>
+            <a href="projects.html">프로젝트</a>
+            <a href="resell.html">리셀 자동화</a>
+            <a href="make_shorts.html">쇼츠 메이커</a>
+            <a href="contact.html">문의</a>
+          </div>
+        </div>
+        <div class="footer-links" style="align-items:flex-start">
+          <a href="https://github.com/GiJeongCho" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://wzxcv123.tistory.com/" target="_blank" rel="noopener">Blog</a>
+          <a href="https://leaf-drill-a6f.notion.site/Profile_Gi_Jeong_Cho-66f60842a1c74bcc870d126a96f8743e" target="_blank" rel="noopener">Notion</a>
+          <a href="http://netbitrage.kro.kr" target="_blank" rel="noopener">Netbitrage</a>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year">2026</span> 조기정 (Gijeong Cho). All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

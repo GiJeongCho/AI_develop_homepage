@@ -23,6 +23,27 @@
     }
   });
 
+  // 2-1) 부업 관리 드롭다운
+  var drop = document.querySelector('.nav-dropdown');
+  if (drop) {
+    var dToggle = drop.querySelector('.nav-drop-toggle');
+    // 현재 페이지가 드롭다운 하위면 토글을 활성 표시
+    if (drop.querySelector('.nav-drop-menu a.active')) {
+      dToggle.classList.add('active');
+    }
+    dToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = drop.classList.toggle('open');
+      dToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        dToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // 3) 스크롤 등장 애니메이션
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
