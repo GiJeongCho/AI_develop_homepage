@@ -31,7 +31,7 @@ python -m http.server 5500
 
 ## 배포 전 체크리스트
 
-- [ ] **문의 폼**: `contact.html` 의 `access_key` 를 실제 [Web3Forms](https://web3forms.com) Access Key 로 교체.
+- [x] **문의 폼**: `contact.html` 의 `access_key` 를 실제 [Web3Forms](https://web3forms.com) Access Key 로 교체 완료. (수신 메일은 키 발급 시 등록한 주소)
 - [ ] 표시 이메일(`wzxcv123@naver.com`) · 전화(`010-2656-5690`) 확인.
 - [ ] 고객사/국방 프로젝트 실명 노출 여부 최종 확인(기본: 추상화).
 - [ ] 도메인(`fish-ai-develop.kro.kr`) 연결 후 QR 재검증.
