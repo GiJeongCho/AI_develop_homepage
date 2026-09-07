@@ -10,7 +10,7 @@
 
 | 파일 | 내용 |
 |---|---|
-| `index.html` | 메인 — Hero · 핵심 강점 · 성과 · 서비스 요약 · Netbitrage · 경력 요약 · 신뢰 배지 · CTA |
+| `index.html` | 메인 — Hero · 핵심 강점 · 성과 · 서비스 요약 · Netbitrage · 신뢰 배지 · CTA (경력은 about 로 분리) |
 | `about.html` | 경력 타임라인(석사 → Edutem → PPS 팀장) · 학력/자격/특허/논문 · 기술 스택 |
 | `services.html` | 수주 관점 6개 서비스 |
 | `projects.html` | 대표 프로젝트 8건 (일부 고객사/기관명 추상화) |
@@ -18,7 +18,7 @@
 | `css/style.css` | 다크 네이비 + 민트/시안 디자인 시스템, 반응형 |
 | `js/main.js` | 모바일 네비 · 스크롤 등장 애니메이션 · 폼 전송 |
 | `image/qr-*.{png,svg}` | 사이트 QR 코드 |
-| `docs/` | 작업 플랜(`plan.md`) · 사실관계(`resume_facts.md`) |
+| `docs/` | 구조·사용법(`SITE_GUIDE.md`) · 작업 플랜(`plan.md`) · 사실관계(`resume_facts.md`) |
 
 ## 로컬 실행
 
