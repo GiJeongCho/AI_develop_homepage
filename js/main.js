@@ -1,4 +1,6 @@
 /* main.js — 네비 토글 · 스크롤 등장 · 현재 페이지 표시 · 연도 · 폼 상태 */
+document.documentElement.classList.add('js');
+
 (function () {
   'use strict';
 
@@ -6,11 +8,25 @@
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
   if (toggle && links) {
+    toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', function () {
-      links.classList.toggle('open');
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
     });
     links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') links.classList.remove('open');
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', '메뉴 열기');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', '메뉴 열기');
+      }
     });
   }
 
@@ -45,18 +61,23 @@
   }
 
   // 3) 스크롤 등장 애니메이션
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) {
-        en.target.classList.add('in');
-        io.unobserve(en.target);
-      }
+  var revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 4) * 60 + 'ms';
+      io.observe(el);
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(function (el, i) {
-    el.style.transitionDelay = (i % 4) * 60 + 'ms';
-    io.observe(el);
-  });
+  } else {
+    revealItems.forEach(function (el) { el.classList.add('in'); });
+  }
 
   // 4) 푸터 연도
   var y = document.getElementById('year');

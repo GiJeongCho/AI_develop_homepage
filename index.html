@@ -9,8 +9,9 @@
   <meta property="og:description" content="영상 AI · 문서 LLM · 업무/부업 자동화. 직접 만들어 운영해 본 것들을 중심으로." />
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style-v2.css" />
 </head>
-<body>
+<body class="home-page">
   <!-- 헤더 -->
   <header class="site-header">
     <div class="wrap nav">
@@ -41,8 +42,8 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="reveal">
-          <span class="eyebrow">AI 개발 · 자동화</span>
-          <h1>AI · 자동화,<br /><span class="grad-text">제가 대신 만들어 드립니다.</span></h1>
+          <span class="eyebrow">AI Engineering · Automation</span>
+          <h1>AI를 데모에서<br /><span class="grad-text">작동하는</span><br />시스템으로.</h1>
           <p class="lead">
             실시간 영상 AI, 사내 문서 LLM, 반복 업무·부업 자동화 — <b>제가 직접 만들어 운영해 본 것들</b>을
             중심으로 필요한 만큼만 맡아 드립니다. 만능은 아니지만, <b>되는 것과 안 되는 것을 솔직하게</b> 말씀드립니다.
@@ -57,13 +58,22 @@
             <div class="m"><b class="grad-text">정직한 견적</b><span>안 되면 안 된다고</span></div>
           </div>
         </div>
-        <div class="hero-card reveal">
-          <h3>주요 기술 스택</h3>
-          <div class="skill-tags">
-            <span>YOLO</span><span>TensorRT</span><span>PyTorch</span><span>Kalman Tracking</span>
-            <span>RAG</span><span>Neo4j</span><span>Milvus</span><span>Flan-T5</span>
-            <span>LLM 파인튜닝</span><span>MCP·Agent</span><span>FastAPI</span><span>Docker</span>
-            <span>Integer Programming</span><span>Streamlit</span>
+        <div class="orb-stage reveal" aria-label="FISH-AI 기술 영역을 표현한 원형 AI 모형">
+          <div class="orb-ring ring-one" aria-hidden="true">
+            <span class="orb-node n1"></span>
+            <span class="orb-node n2"></span>
+            <span class="orb-node n3"></span>
+          </div>
+          <div class="orb-ring ring-two" aria-hidden="true"></div>
+          <div class="ai-orb" aria-hidden="true">
+            <span class="orb-core"><b>FISH</b><small>AI CORE</small></span>
+          </div>
+          <span class="orbit-label vision">Computer Vision</span>
+          <span class="orbit-label rag">Secure RAG</span>
+          <span class="orbit-label agent">AI Agents</span>
+          <div class="orb-stack" aria-label="주요 기술 스택">
+            <span>YOLO</span><span>TensorRT</span><span>PyTorch</span><span>RAG</span>
+            <span>Neo4j</span><span>MCP</span><span>FastAPI</span><span>Docker</span>
           </div>
         </div>
       </div>
