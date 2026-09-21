@@ -18,10 +18,11 @@ AI_develop_homepage/
 ├─ services.html       # 제공 서비스 6종
 ├─ projects.html       # 대표 프로젝트 8건
 ├─ resell.html         # 제품 랜딩: 리셀 자동화(무신사→포이즌)
-├─ make_shorts.html    # 제품 랜딩: AI 쇼츠 메이커(내 API 키)
+├─ make_shorts.html    # 제품 랜딩: AI 쇼츠 메이커(맞춤형 베타)
 ├─ contact.html        # 문의 폼 · 연락처 · QR
 ├─ css/
-│  └─ style.css        # 디자인 시스템 (다크 네이비 + 민트/시안), 반응형
+│  ├─ style.css        # 기본 디자인 시스템
+│  └─ style-v2.css     # 블랙·라임 에디토리얼 테마 + 원형 AI 모형
 ├─ js/
 │  └─ main.js          # 네비 토글 · 스크롤 애니메이션 · 문의 폼 전송
 ├─ image/
@@ -69,8 +70,9 @@ AI_develop_homepage/
 문구 근거: `../../resell/docs/제품_강점_및_마케팅.md`·`운영_가이드.md`·`ARCHITECTURE.md` (과장 없이 요약, 리스크 고지 포함).
 
 ### `make_shorts.html` (제품 랜딩 — AI 쇼츠 메이커)
-**내 API 키**로 단계별 리더보드에서 최신 최고 모델을 골라 세로형 쇼츠를 자동 생성하는 데스크톱 앱의 랜딩.
-섹션: Hero → 문제 제기 → 핵심 강점(내 키/리더보드/파이프라인/미리보기·채팅 수정/9:16 자막/오프라인 데모) → 단계별 지원 모델 → 작동 흐름 3단계 → '내 키'가 유리한 이유 → 타깃 고객 → 유의사항 → CTA(문의).
+비개발자 1인 크리에이터를 위해 쇼츠·릴스·틱톡용 세로 영상을 쉽게 만드는 **맞춤형 베타 준비 페이지**.
+섹션: Hero(딸깍 후킹+베타 상태) → 비개발자 문제 → 쉬운 핵심 기능 → 제작 구성 → 작동 흐름 → 초기 세팅 대행 → 서비스 범위 → FAQ → 타깃 고객 → 유의사항 → CTA(문의).
+API·모델 용어는 전면에 내세우지 않고, 서비스 가입·연결·채널 스타일을 대신 설정하는 상담형 상품으로 설명합니다.
 문구 근거: `../../make_shorts/docs/ARCHITECTURE.md`·`README.md`.
 
 ### `contact.html`
@@ -81,18 +83,19 @@ AI_develop_homepage/
 
 ---
 
-## 3. 디자인 시스템 (`css/style.css`)
+## 3. 디자인 시스템 (`css/style.css` + `css/style-v2.css`)
 
-CSS 변수(`:root`)로 토큰 관리 — 색을 바꾸려면 여기만 수정:
+`style.css`의 기본 컴포넌트 위에 `style-v2.css`가 현재 시각 테마와 반응형 스타일을 덮어씁니다.
+색상과 원형 AI 모형을 변경할 때는 `style-v2.css`의 `:root`, `.orb-stage`, `.ai-orb`를 우선 수정합니다.
 
 | 토큰 | 값 | 용도 |
 |---|---|---|
-| `--bg` / `--bg-2` | `#0a0f1c` / `#0e1526` | 배경 |
-| `--panel` / `--panel-2` | `#121a2e` / `#16203a` | 카드/패널 |
-| `--text` / `--text-2` / `--muted` | `#e8eefb` / `#9fb0cf` / `#6f80a3` | 본문 텍스트 3단계 |
-| `--mint` / `--cyan` | `#35e0c1` / `#4aa8ff` | 포인트 컬러 |
-| `--grad` | mint → cyan | 그라디언트(제목·버튼) |
-| `--radius` / `--maxw` | `16px` / `1120px` | 라운드 / 최대 폭 |
+| `--bg` / `--bg-2` | `#07080b` / `#0c0e13` | 블랙 배경 |
+| `--panel` / `--panel-2` | `#101217` / `#151820` | 카드/패널 |
+| `--text` / `--text-2` / `--muted` | `#f4f5f7` / `#aeb3bd` / `#717782` | 본문 텍스트 3단계 |
+| `--mint` / `--cyan` | `#c8ff3d` / `#52e5ff` | 라임·시안 포인트 |
+| `--grad` | lime → cyan | 제목·포인트 그라디언트 |
+| `--radius` / `--maxw` | `2px` / `1180px` | 각진 UI / 최대 폭 |
 
 **공통 클래스**: `.wrap`(레이아웃 폭), `.btn`/`.btn-primary`/`.btn-ghost`/`.btn-lg`(버튼), `.card`(카드), `.grad-text`(그라디언트 글자), `.section-head`/`.section-title`/`.section-sub`(섹션 헤더), `.badge`(배지), `.reveal`(스크롤 등장 대상).
 

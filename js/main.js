@@ -87,6 +87,19 @@ document.documentElement.classList.add('js');
   var form = document.getElementById('contact-form');
   if (form) {
     var statusEl = document.getElementById('form-status');
+    var topicSelect = form.querySelector('#topic');
+    var messageInput = form.querySelector('#message');
+    var requestedTopic = new URLSearchParams(location.search).get('topic');
+    if (topicSelect && requestedTopic) {
+      var requestedOption = topicSelect.querySelector('[data-topic="' + requestedTopic + '"]');
+      if (requestedOption) {
+        requestedOption.selected = true;
+        if (requestedTopic === 'shorts' && messageInput) {
+          messageInput.placeholder = '만들고 싶은 채널(쇼츠·릴스·틱톡), 콘텐츠 주제, 주당 제작 개수, 설정 도움 필요 여부를 편하게 적어주세요.';
+        }
+      }
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var key = form.querySelector('[name="access_key"]');

@@ -15,7 +15,8 @@
 | `services.html` | 수주 관점 6개 서비스 |
 | `projects.html` | 대표 프로젝트 8건 (일부 고객사/기관명 추상화) |
 | `contact.html` | 문의 폼(Web3Forms) · 연락처 · QR · 링크 |
-| `css/style.css` | 다크 네이비 + 민트/시안 디자인 시스템, 반응형 |
+| `css/style.css` | 기존 다크 네이비 디자인 시스템 |
+| `css/style-v2.css` | 현재 블랙·라임 에디토리얼 테마와 원형 AI 모형 |
 | `js/main.js` | 모바일 네비 · 스크롤 등장 애니메이션 · 폼 전송 |
 | `image/qr-*.{png,svg}` | 사이트 QR 코드 |
 | `docs/` | 구조·사용법(`SITE_GUIDE.md`) · 작업 플랜(`plan.md`) · 사실관계(`resume_facts.md`) |
